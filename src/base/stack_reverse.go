@@ -2,11 +2,11 @@
 package main
 
 import (
-	slicest "../structs/stack"
+	st "../structs/stack"
 )
 
-func main()  {
-	stack := &slicest.SliceStack{Slice: make([]int,0)}
+func main() {
+	stack := &st.SliceStack{Slice: make([]int, 0)}
 	stack.Push(1)
 	stack.Push(2)
 	stack.Push(3)
