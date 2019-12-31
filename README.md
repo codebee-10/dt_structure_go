@@ -1,2 +1,2 @@
-# struct-algo
-struct and algorithm
+# dt_structure_go
+Golang data structure and algorithm
