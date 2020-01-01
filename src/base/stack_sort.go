@@ -1,4 +1,4 @@
-//实现栈的所有元素翻转
+//实现栈元素排序
 package main
 
 import (
@@ -16,15 +16,21 @@ func MoveStack(stack *st.LNode) {
 	if !stack.IsEmpty() {
 		MoveStack(stack)
 		end := stack.Pop()
-		stack.Push(head)
-		stack.Push(end)
+		if head > end {
+			stack.Push(end)
+			stack.Push(head)
+		} else {
+			stack.Push(head)
+			stack.Push(end)
+		}
+
 	} else {
 		stack.Push(head)
 	}
 }
 
 //实现栈元素翻转
-func ReverseStack(stack *st.LNode) {
+func SortStack(stack *st.LNode) {
 	for !stack.Next.IsEmpty() {
 		MoveStack(stack)
 		stack = stack.Next
@@ -34,15 +40,17 @@ func ReverseStack(stack *st.LNode) {
 func main() {
 	stack := &st.LNode{0, nil}
 	stack.Push(1)
-	stack.Push(2)
 	stack.Push(3)
-	stack.Push(4)
 	stack.Push(5)
-	fmt.Println("Before Reverse:")
+	stack.Push(2)
+	stack.Push(99)
+	stack.Push(21)
+	stack.Push(6)
+	fmt.Println("Before Sort:")
 	fmt.Println("栈大小为:", stack.Size(), "栈顶元素为:", stack.Top())
 	stack.PrintStack()
-	fmt.Println("After Reverse")
-	ReverseStack(stack)
+	fmt.Println("After Sort")
+	SortStack(stack)
 	fmt.Println("栈大小为:", stack.Size(), "栈顶元素为:", stack.Top())
 	stack.PrintStack()
 }
