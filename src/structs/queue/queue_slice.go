@@ -41,7 +41,7 @@ func (p *SliceQueue) Pop() interface{} {
 	if p.IsEmpty() {
 		panic(errors.New("队列已经为空"))
 	}
-	head := p.Slice[p.front]
+	head := p.Slice[0]
 	p.front++
 	p.Slice = p.Slice[1:]
 	return head
