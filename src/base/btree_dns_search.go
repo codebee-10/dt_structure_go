@@ -6,6 +6,7 @@ import "fmt"
 var CharCount = 11
 
 //Trie树
+
 type TrieNode struct {
 	IsLeaf bool
 	Url    string
